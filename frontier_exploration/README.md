@@ -2,7 +2,7 @@
 
 This repository contains files to set up a simulation environment for a decentralized multi-robot exploration using 2D Stage simulator and a map from [Google Cartographer](https://github.com/googlecartographer). 
 
-Package ```decentralized_multi_robot_exploration``` is used for testing the algorithms in the simulation with mobile robots Pioneer P3-DX. 
+Package ```frontier_exploration``` is used for testing the algorithms in the simulation with mobile robots Pioneer P3-DX. 
 
 ## Table Of Contents
 
@@ -50,5 +50,5 @@ To achive autonomous decentralized exploration, run filter.launch and multi_robo
 
 ```roslaunch frontier_exploration multi_robot_assigner.launch```
 
-Make sure that you set the correct number of mobile robots (n_robots) in filter.launch and robot_assigner.launch file.
+Make sure that you set the correct number of mobile robots (n_robots) in filter.launch and robot_assigner.launch.
 
