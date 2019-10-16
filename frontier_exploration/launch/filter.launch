@@ -1,0 +1,11 @@
+<!-- Launch file for the assigner -->
+<launch>
+  <node pkg="frontier_exploration" type="frontier_filter.py" name="frontier_filter" output="screen">
+  <param name="rate" value="2"/>
+  <param name="map_topic" value="/map"/>
+  <param name="n_robots" value="2"/>
+  <param name="distance_threshold" value="3.0"/>
+  </node>
+
+</launch>
+

@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find frontier_exploration)/launch/navigation.launch">
+     <arg name="robot_name" value="robot_0"/>
+  </include>
+
+ <include file="$(find frontier_exploration)/launch/navigation.launch">
+     <arg name="robot_name" value="robot_1"/>
+  </include>
+
+</launch>
+

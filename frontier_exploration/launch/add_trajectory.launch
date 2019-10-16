@@ -1,0 +1,22 @@
+<launch>
+  <arg name="robot_name" value="$(env ROBOT_NAME)" />
+  <arg name="initial" default="" />	
+  <arg name="bag" default="" />
+
+  <arg name="initial_argument_expanded" value="-initial_pose '$(arg initial)'" if="$(eval arg('initial') != '')" />
+  <arg name="initial_argument_expanded" value="" if="$(eval arg('initial') == '')" />
+
+  <node name="cartographer_start_trajectory" pkg="cartographer_ros"
+      type="cartographer_start_trajectory" args="
+          -configuration_directory $(find frontier_exploration)/config
+          -configuration_basename decentralised_cartographer.lua
+	  $(arg initial_argument_expanded)"
+      output="screen">
+    <!--remap from="scan" to="$(arg robot_name)/laser/scan" /-->
+    <remap from="scan" to="$(arg robot_name)/base_scan" />
+
+    <remap from="imu" to="$(arg robot_name)/imu" />
+    <remap from="odom" to="$(arg robot_name)/base_pose_ground_truth" />
+  </node>
+
+</launch>

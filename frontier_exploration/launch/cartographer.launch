@@ -1,0 +1,15 @@
+<launch>
+  <arg name="bag" default="" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="-start_trajectory_with_default_topics=false
+          -configuration_directory $(find frontier_exploration)/config
+          -configuration_basename decentralised_cartographer.lua"
+      output="screen">
+  </node>
+  
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+  	  type="cartographer_occupancy_grid_node" />
+
+  <include file="$(find frontier_exploration)/launch/stage-pioneer-3dx-sick.launch"/>
+</launch>

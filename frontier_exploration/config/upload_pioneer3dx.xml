@@ -1,0 +1,6 @@
+<launch>
+  <!-- send table.xml to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find decentralised_multi_robot_exploration)/defs/pioneer3dx.xacro" />
+
+</launch>
+

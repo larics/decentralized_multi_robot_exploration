@@ -1,0 +1,35 @@
+<launch>
+    <param name="/use_sim_time" value="true"/>
+    <arg name="robot_name" default=""/> 
+
+    <!-- Launch navigation -->
+    <node pkg="move_base" type="move_base" name="move_base" ns="$(arg robot_name)">        
+        <rosparam file="$(find frontier_exploration)/config/p3dx_costmap_common_params.yaml" command="load" ns="global_costmap"/>
+        <rosparam file="$(find frontier_exploration)/config/p3dx_costmap_common_params.yaml" command="load" ns="local_costmap"/>
+        <rosparam file="$(find frontier_exploration)/config/p3dx_local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find frontier_exploration)/config/p3dx_global_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find frontier_exploration)/config/p3dx_base_local_planner_params.yaml" command="load"/>
+        <!-- Rename some parameters to enable multi-robot setup -->
+        <param name="local_costmap/scan/topic" value="$(arg robot_name)/base_scan"/>
+        <param name="local_costmap/global_frame" value="map"/>
+        <param name="local_costmap/robot_base_frame" value="$(arg robot_name)/base_link"/>
+        <param name="local_costmap/map_topic" value="map"/>
+        <param name="global_costmap/scan/topic" value="$(arg robot_name)/base_scan"/>
+        <param name="global_costmap/map_topic" value="map"/>
+        <param name="global_costmap/global_frame" value="map"/>
+        <param name="global_costmap/robot_base_frame" value="$(arg robot_name)/base_link"/>
+
+        <param name="footprint_padding" value="0.02" />
+        <param name="controller_frequency" value="10.0" />
+        <param name="controller_patience" value="3.0" />
+
+        <param name="oscillation_timeout" value="30.0" />
+        <param name="oscillation_distance" value="0.5" />
+        <param name="recovery_behavior_enabled" value="false"/>
+        <param name="clearing_rotation_allowed" value="false"/>
+        <param name="planner_frequency" value="1.0"/>
+        <remap from="/$(arg robot_name)/map" to="/map"/> 
+    </node>  
+    
+</launch>
+

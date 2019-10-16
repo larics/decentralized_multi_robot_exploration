@@ -1,0 +1,36 @@
+#Independent settings for the global planner's costmap. Detailed descriptions of these parameters can be found at http://www.ros.org/wiki/costmap_2d
+
+global_costmap:
+  
+  inflation_radius: 0.7
+  cost_scaling_factor: 10.0
+  #Set the global and robot frames for the costmap
+  global_frame: map
+  robot_base_frame: base_link
+
+  cost_factor: 0.55
+  neutral cost: 66
+  lethal cost: 253
+
+  #Set the update and publish frequency of the costmap
+  update_frequency: 10.0
+  publish_frequency: 10.0
+
+  #We'll use a map served by the map_server to initialize this costmap
+  static_map: true
+  rolling_window: false
+  transform_tolerance: 0.5
+#  width: 100
+#  height: 100
+#  origin_x: -50
+#  origin_y: -50
+
+  footprint_padding: 0.01
+  always_send_full_costmap: true
+
+NavfnROS:
+  allow_unknown: false
+  track_unknown_space: true
+  default_tolerance: 0.3
+
+

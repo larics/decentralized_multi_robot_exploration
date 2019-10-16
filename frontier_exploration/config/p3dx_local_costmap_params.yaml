@@ -1,0 +1,28 @@
+#Independent settings for the local planner's costmap. Detailed descriptions of these parameters can be found at http://www.ros.org/wiki/costmap_2d
+
+local_costmap:
+  #Set the global and robot frames for the costmap
+  global_frame: map
+  robot_base_frame: base_link
+
+  footprint_padding: 0.02
+  #Cost function parameters
+  inflation_radius: 0.7
+  cost_scaling_factor: 10.0
+  #We'll publish the voxel grid used by this costmap
+  publish_voxel_map: true
+
+  #Set the update and publish frequency of the costmap
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  controller_frequency: 20.0
+
+  #We'll configure this costmap to be a rolling window... meaning it is always
+  #centered at the robot
+  static_map: false
+  rolling_window: true
+  width: 5.0
+  height: 5.0
+  resolution: 0.02
+
+
