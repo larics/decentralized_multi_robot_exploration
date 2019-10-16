@@ -11,7 +11,7 @@ Package ```decentralized_multi_robot_exploration``` is used for testing the algo
   * [Running the simulation](#Running)
 
 ## <a name="Installation"></a> Installation
-Detailed installation instructions can be found in [InstallationInstructions.md](https://github.com/AnaBatinovic/decentralised_multi_robot_exploration/blob/master/InstallationInstructions.md)
+Detailed installation instructions can be found in [InstallationInstructions.md](https://github.com/larics/decentralised_multi_robot_exploration/blob/master/InstallationInstructions.md)
 
 ## <a name="BasicUsage"></a> Basic Usage
 This section describes how to run autonomous decentralized exploration for two mobile robots Pioneer P3-DX (robot_0 and robot_1).
@@ -47,6 +47,7 @@ You should also be able to crate a map of the environment with two mobile robots
 To achive autonomous decentralized exploration, run filter.launch and multi_robot_assigner.launch:
 
 ```roslaunch frontier_exploration filter.launch```
+
 ```roslaunch frontier_exploration multi_robot_assigner.launch```
 
 Make sure that you set the correct number of mobile robots (n_robots) in filter.launch and robot_assigner.launch file.
